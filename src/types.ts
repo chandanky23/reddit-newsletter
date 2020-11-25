@@ -8,3 +8,16 @@ export interface User {
     url: string
   }[]
 }
+
+export interface Reddits {
+  title: string
+  display_name: string
+  display_name_prefixed: string
+}
+
+export interface SubReddits {
+  title: string
+  image: string
+  votes: number
+  subRedditName: string
+}
