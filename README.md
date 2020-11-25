@@ -35,3 +35,7 @@ with respect to nodejs integration documentation: [https://app.sendgrid.com/guid
 * update a user -> `/api/users/update`
 * subscribe/unsubscribe users reddit choices -> `/api/users/subscribe`
 * get all the available sub reddits from reddits server -> `/api/reddits`
+
+## Emails
+
+Newsletter will be sent to users email following the time zones `Europe/Berlin` and `America/Denver` every day at 8 am in the morning.
