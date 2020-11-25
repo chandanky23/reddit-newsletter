@@ -1,6 +1,9 @@
+import dotenv from "dotenv"
 import express from "express"
 import "express-async-errors"
 import { json } from "body-parser"
+import ejs from 'ejs'
+import path from 'path'
 import { userRouter } from "./routes/getUsersRouter"
 import { signupUserRouter } from "./routes/signupUserRouter"
 import { updateUserRouter } from "./routes/updateUserRouter"
@@ -12,6 +15,11 @@ import { errorHandler } from "./middlewares/error-handler"
 
 const app = express()
 app.use(json())
+dotenv.config()
+
+app.set("views", path.join(__dirname, "views"))
+app.engine("html", ejs.renderFile)
+app.set("view engine", "html")
 
 app.use(userRouter)
 app.use(signupUserRouter)
@@ -19,6 +27,7 @@ app.use(updateUserRouter)
 app.use(deleteUserRouter)
 app.use(subscribeRedditRouter)
 app.use(redditRouter)
+
 
 app.all("*", async () => {
   throw new NotFoundError()

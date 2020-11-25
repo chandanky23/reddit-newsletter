@@ -1,0 +1,38 @@
+<ul style="list-style-type: none; margin-top: 1%">
+  <% reddits.forEach(function(sub) { %>
+  <div style="border: 1px solid black; margin-top: 1%; float: left">
+    <div style="font-size: 16px; font-weight: bold;"><%=sub.name%>: &nbsp;</div>
+    <div><%=sub.url%></div>
+  </div>
+  <% sub.data.forEach(function(r) { %>
+  <li>
+    <div style="width: 100%">
+      <%if(r.image) { %>
+      <img src="<%=r.image%>" width="50%" />
+      <% } else { %>
+      <img
+        src="https://cdn.wccftech.com/wp-content/uploads/2017/03/reddit-alien-red-2060x1030.jpg"
+      />
+      <% } %>
+    </div>
+    <div style="float: left">
+      <div
+        style="
+          width: 40px;
+          height: 40px;
+          font-size: 10px;
+          border-radius: 50%;
+          background-color: orange;
+          color: white;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        "
+      >
+        <%=r.votes%>
+      </div>
+      <div><%=r.title%></div>
+    </div>
+  </li>
+  <% })%> <% })%>
+</ul>
