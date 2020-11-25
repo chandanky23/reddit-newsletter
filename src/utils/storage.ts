@@ -18,3 +18,11 @@ export const getItem = async (key: string) => {
 export const setItem = async (key: string, val?: User[]) => {
   await storage.setItem(key, val)
 }
+
+export const delItem = async (key: string) => {
+  await storage.removeItem(key)
+}
+
+export const clear = async () => {
+  await storage.clear()
+}
